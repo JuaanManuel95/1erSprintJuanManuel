@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,10 +22,12 @@ import java.util.List;
 public class RecyclerViewFragment extends Fragment implements ProductosAdapter.ProductosAdapterListener {
 
     private RecyclerViewFragmentListener recyclerViewFragmentListener;
+    //private SwipeRefreshLayout swipeRefreshLayout;
 
     public RecyclerViewFragment() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -37,6 +40,8 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+
+      // SwipeRefreshLayout swipeRefreshLayout =  view.findViewById(R.id.swipeRefreshLayout);
 
         RecyclerView recyclerViewProductos = view.findViewById(R.id.fragmentRecyclerRecyclerView);
 
@@ -61,4 +66,6 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
     public interface RecyclerViewFragmentListener{
         public void onClickProductosDesdeFragment(Productos productos);
     }
+
+
 }

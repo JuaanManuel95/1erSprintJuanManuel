@@ -3,6 +3,7 @@ package com.example.mercadoesclavojmp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,17 +37,17 @@ public class DetailFragment extends Fragment {
         ImageView imageViewProducto = view.findViewById(R.id.fragmentDetailImageView);
         TextView textViewProducto = view.findViewById(R.id.fragmentDetailTextViewNombreProducto);
         TextView textViewPrecio = view.findViewById(R.id.fragmentDetailTextViewPrecioProducto);
+        TextView textViewDescripcion = view.findViewById(R.id.framentDetailTextViewDescripcionProducto);
 
 
         imageViewProducto.setImageResource(productos.getImagen());
         textViewProducto.setText(productos.getNombre());
         textViewPrecio.setText(productos.getPrecio());
-
-
-
-
+        textViewDescripcion.setText(productos.getDescripcion());
 
 
         return view;
     }
+
+
 }

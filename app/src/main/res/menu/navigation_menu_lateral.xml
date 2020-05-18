@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+          android:title="Mi cuenta"
+        android:id="@+id/menuMiCuenta"
+          android:icon="@drawable/ic_person_outline_black_24dp"/>
+
+    <item
+        android:title="Favoritos"
+        android:id="@+id/menuFavoritos"
+        android:icon="@drawable/ic_stars_black_24dp"/>
+
+    <item
+        android:title="Ajustes"
+        android:id="@+id/menuAjustes"
+        android:icon="@drawable/ic_build_black_24dp"/>
+
+    <item
+        android:title="Sobre nosotros"
+        android:id="@+id/menuSobreNosotros"
+        android:icon="@drawable/ic_people_outline_black_24dp"/>
+
+
+</menu>
