@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp;
+package com.example.mercadoesclavojmp.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,14 +6,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
+import com.example.mercadoesclavojmp.R;
+import com.example.mercadoesclavojmp.model.Productos;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewFragment.RecyclerViewFragmentListener {
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.activityMainContenedorFragment, fragment);
-        //fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
@@ -86,6 +85,16 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
         detailFragment.setArguments(bundle);
         pegarFragment(detailFragment);
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1){
+            finish();
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 
 

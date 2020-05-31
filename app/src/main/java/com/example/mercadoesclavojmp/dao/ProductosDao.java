@@ -1,14 +1,17 @@
-package com.example.mercadoesclavojmp;
+package com.example.mercadoesclavojmp.dao;
+
+import com.example.mercadoesclavojmp.R;
+import com.example.mercadoesclavojmp.model.Productos;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ProveedorDeProductos {
+public abstract class ProductosDao {
 
     public static List<Productos> getProductos(){
         List<Productos> productosList = new ArrayList<>();
 
-        productosList.add(new Productos("Airpods",R.drawable.airpods, "$30.000","Auriculares Bluetooth de excelente calidad de sonido."));
+        productosList.add(new Productos("Airpods", R.drawable.airpods, "$30.000","Auriculares Bluetooth de excelente calidad de sonido."));
         productosList.add(new Productos("iPad",R.drawable.ipad, "$120.000","Tablet iPad de 9.7' con 32 GB de almacenamiento."));
         productosList.add(new Productos("Equipo de música",R.drawable.parlantes,"$40.000", "Equipo de alta fidelidad de Sonido con BT incorporado."));
         productosList.add(new Productos("PlayStation 4",R.drawable.playstation4, "$25.000","PlayStation 4 Slim de 1 TB de almacenamiento."));

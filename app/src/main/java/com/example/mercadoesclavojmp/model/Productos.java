@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp;
+package com.example.mercadoesclavojmp.model;
 
 import java.io.Serializable;
 

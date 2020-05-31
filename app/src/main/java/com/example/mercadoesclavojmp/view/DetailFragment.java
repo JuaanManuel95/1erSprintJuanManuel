@@ -1,15 +1,17 @@
-package com.example.mercadoesclavojmp;
+package com.example.mercadoesclavojmp.view;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.mercadoesclavojmp.R;
+import com.example.mercadoesclavojmp.model.Productos;
 
 
 /**

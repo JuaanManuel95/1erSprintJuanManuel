@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D4E157"
-    tools:context=".SobreNosotrosFragment">
+    android:background="#CE93D8"
+    tools:context=".view.SobreNosotrosFragment">
 
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:textAlignment="center"
         android:textStyle="italic"
-        android:textColor="#00897B"
+        android:textColor="#D4E157"
         android:textSize="27dp"
         android:text="Mercado Esclavo nace en Argentina en el año 2020, como el proyecto de Juan Manuel Pedro, estudiante de Android Development en Digital House, un colegio de Buenos Aires.
 

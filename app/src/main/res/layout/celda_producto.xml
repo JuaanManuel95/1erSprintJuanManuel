@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:backgroundTint="#7986CB"
+    android:backgroundTint="#5C6BC0"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="30dp"
     app:cardElevation="45dp"
@@ -16,9 +16,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:textAlignment="center"
-            android:textColor="#9CCC65"
+            android:textColor="#EF9A9A"
             android:id="@+id/celdaTextViewNombreProducto"/>
         <ImageView
             android:layout_width="match_parent"
@@ -30,9 +30,9 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:text="Precio"
-            android:textColor="#000"
+            android:textColor="#EF9A9A"
             android:textAlignment="center"
             android:id="@+id/celdaTextViewPrecioProducto"/>
 

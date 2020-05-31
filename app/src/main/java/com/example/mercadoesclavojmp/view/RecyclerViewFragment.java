@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp;
+package com.example.mercadoesclavojmp.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,11 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.mercadoesclavojmp.controller.ProductosController;
+import com.example.mercadoesclavojmp.dao.ProductosDao;
+import com.example.mercadoesclavojmp.R;
+import com.example.mercadoesclavojmp.model.Productos;
 
 import java.util.List;
 
@@ -45,9 +49,10 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
 
         RecyclerView recyclerViewProductos = view.findViewById(R.id.fragmentRecyclerRecyclerView);
 
-        List<Productos> productosList = ProveedorDeProductos.getProductos();
-        ProductosAdapter productosAdapter = new ProductosAdapter(productosList,this);
+        ProductosController productosController = new ProductosController();
 
+        List<Productos> productosList = productosController.getProductos();
+        ProductosAdapter productosAdapter = new ProductosAdapter(productosList,this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
 
         recyclerViewProductos.setLayoutManager(linearLayoutManager);
