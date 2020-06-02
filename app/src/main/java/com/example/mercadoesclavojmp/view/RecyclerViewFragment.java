@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.mercadoesclavojmp.controller.ProductosController;
-import com.example.mercadoesclavojmp.dao.ProductosDao;
 import com.example.mercadoesclavojmp.R;
+import com.example.mercadoesclavojmp.dao.ProductoDao;
 import com.example.mercadoesclavojmp.model.Productos;
 
 import java.util.List;
@@ -51,7 +51,7 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
 
         ProductosController productosController = new ProductosController();
 
-        List<Productos> productosList = productosController.getProductos();
+        List<Productos> productosList = ProductoDao.getProductos();
         ProductosAdapter productosAdapter = new ProductosAdapter(productosList,this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
 

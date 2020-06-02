@@ -12,7 +12,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.mercadoesclavojmp.R;
+import com.example.mercadoesclavojmp.controller.ProductosController;
+import com.example.mercadoesclavojmp.model.ProductoContainer;
 import com.example.mercadoesclavojmp.model.Productos;
+import com.example.mercadoesclavojmp.util.ResultListener;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewFragment.RecyclerViewFragmentListener {
@@ -20,6 +23,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+    //private ProductosController productosController;
+
+
 
 
 
@@ -28,7 +34,26 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
+
+
+        ProductosController productosController = new ProductosController();
+        productosController.searchByQuery("Notebooks", new ResultListener<ProductoContainer>() {
+            @Override
+            public void onFinish(ProductoContainer result) {
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("productos", result);
+                RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+                recyclerViewFragment.setArguments(bundle);
+                pegarFragment(recyclerViewFragment);
+
+
+            }
+        });
+
+
+
+
+
         navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
 
