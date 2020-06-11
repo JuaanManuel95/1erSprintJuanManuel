@@ -3,4 +3,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="aboutUs">"Mercado Esclavo nace en Argentina en el año 2020, como el proyecto personal de Juan Manuel Pedro, estudiante de Android Development en Digital House, un colegio de Buenos Aires.
+        Nuestra misión es crear la mayor plataforma tecnológica de la región para la comercialización de productos, de una manera fácil, eficiente y segura.
+        En Mercado Esclavo siempre buscamos ideas frescas para complementar nuestro amplio equipo de trabajo, si crees que tenes algo para aportarle a este gran proyecto que busca romper los parámetros del mercado, sumate, te estamos esperando!
+        Atte. el equipo de Mercado Esclavo.</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer</string>
+
 </resources>

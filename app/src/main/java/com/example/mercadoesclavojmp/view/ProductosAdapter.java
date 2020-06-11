@@ -9,18 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.mercadoesclavojmp.R;
-import com.example.mercadoesclavojmp.model.Productos;
+import com.example.mercadoesclavojmp.model.Producto;
+
 
 import java.util.List;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolderProducto> {
 
 
-    private List<Productos> productosList;
+    private List<Producto> productosList;
     private ProductosAdapterListener productosAdapterListener;
 
-    public ProductosAdapter(List<Productos> productosList, ProductosAdapterListener listener) {
+    public ProductosAdapter(List<Producto> productosList, ProductosAdapterListener listener) {
         this.productosList = productosList;
         this.productosAdapterListener = listener;
     }
@@ -36,8 +38,8 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderProducto holder, int position) {
-        Productos productos = this.productosList.get(position);
-        holder.onBind(productos);
+        Producto producto = this.productosList.get(position);
+        holder.onBind(producto);
 
     }
 
@@ -62,25 +64,25 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
                 @Override
                 public void onClick(View v) {
 
-                    Productos productos = productosList.get(getAdapterPosition());
-                    productosAdapterListener.onClick(productos);
+                    Producto producto = productosList.get(getAdapterPosition());
+                    productosAdapterListener.onClick(producto);
                 }
             });
 
 
         }
 
-        public void onBind(Productos productos) {
-            imageViewProducto.setImageResource(productos.getImagen());
-            textViewNombreProducto.setText(productos.getNombre());
-            textViewPrecioProducto.setText(productos.getPrecio().toString());
+        public void onBind(Producto producto) {
+            Glide.with(imageViewProducto).load(producto.getThumbnail()).into(imageViewProducto);
+            textViewNombreProducto.setText(producto.getTitle());
+            textViewPrecioProducto.setText(producto.getPrice().toString());
 
         }
 
 
         }
         public interface ProductosAdapterListener{
-        public void onClick(Productos productos);
+        public void onClick(Producto producto);
 
     }
 }

@@ -1,33 +1,35 @@
 package com.example.mercadoesclavojmp.view;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.controller.ProductosController;
+import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.ProductoContainer;
-import com.example.mercadoesclavojmp.model.Productos;
 import com.example.mercadoesclavojmp.util.ResultListener;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements RecyclerViewFragment.RecyclerViewFragmentListener {
+public class MainActivity extends AppCompatActivity implements RecyclerViewFragment.RecyclerViewFragmentListener, NavigationView.OnNavigationItemSelectedListener {
 
 
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
-    //private ProductosController productosController;
-
-
-
-
+    private ProductosController productosController;
+    private RecyclerViewFragment recyclerViewFragment;
+    private Toolbar toolbar;
 
 
     @Override
@@ -35,77 +37,52 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        ProductosController productosController = new ProductosController();
+        recyclerViewFragment = new RecyclerViewFragment();
+        productosController = new ProductosController();
         productosController.searchByQuery("Notebooks", new ResultListener<ProductoContainer>() {
             @Override
             public void onFinish(ProductoContainer result) {
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("productos", result);
-                RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
+                bundle.putSerializable(RecyclerViewFragment.PRODUCTOS, result);
                 recyclerViewFragment.setArguments(bundle);
                 pegarFragment(recyclerViewFragment);
-
-
             }
         });
-
-
-
 
 
         navigationView = findViewById(R.id.navigationView);
         drawerLayout = findViewById(R.id.drawerLayout);
+        toolbar = findViewById(R.id.toolbarActivityMain);
 
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()) {
-                    case R.id.menuMiCuenta:
-                        Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menuFavoritos:
-                        Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menuAjustes:
-                        Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.menuSobreNosotros:
-                        SobreNosotrosFragment sobreNosotrosFragment = new SobreNosotrosFragment();
-                        pegarFragment(sobreNosotrosFragment);
-                        break;
-                }
-                drawerLayout.closeDrawers();
-                return true;
+        setSupportActionBar(toolbar);
 
 
-            }
-        });
+        ActionBarDrawerToggle toggle =
+                new ActionBarDrawerToggle(this,
+                        drawerLayout,
+                        toolbar,
+                        R.string.open_drawer,
+                        R.string.close_drawer);
 
-        
-        RecyclerViewFragment recyclerViewFragment = new RecyclerViewFragment();
-        pegarFragment(recyclerViewFragment);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
-
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
-
-    private void pegarFragment(Fragment fragment) {
-        FragmentManager supportFragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.activityMainContenedorFragment, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+        return true;
     }
 
 
     @Override
-    public void onClickProductosDesdeFragment(Productos productos) {
+    public void onClickProductosDesdeFragment(Producto producto) {
 
 
         Bundle bundle = new Bundle();
-        bundle.putSerializable(DetailFragment.PRODUCTO, productos);
+        bundle.putSerializable(DetailFragment.PRODUCTO, producto);
         DetailFragment detailFragment = new DetailFragment();
         detailFragment.setArguments(bundle);
         pegarFragment(detailFragment);
@@ -113,20 +90,57 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
     }
 
     @Override
-    public void onBackPressed(){
-        if (getSupportFragmentManager().getBackStackEntryCount() == 1){
+    public void onBackPressed() {
+        if (getSupportFragmentManager().getBackStackEntryCount() == 1) {
             finish();
-        }
-        else {
+        } else {
             super.onBackPressed();
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId){
 
+            case R.id.itemLogOut:
+                Toast.makeText(MainActivity.this, "¡Hasta luego!", Toast.LENGTH_LONG).show();
+                break;
+        }
+        return true;
+    }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menuMiCuenta:
+                Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menuFavoritos:
+                Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menuAjustes:
+                Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.menuSobreNosotros:
+                SobreNosotrosFragment sobreNosotrosFragment = new SobreNosotrosFragment();
+                pegarFragment(sobreNosotrosFragment);
+                break;
+        }
+        drawerLayout.closeDrawers();
+        return true;
+    }
 
-
-
-
+    /**
+     * pegarFragment
+     * @param fragment
+     */
+    private void pegarFragment(Fragment fragment) {
+        FragmentManager supportFragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.activityMainContenedorFragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
 
 }

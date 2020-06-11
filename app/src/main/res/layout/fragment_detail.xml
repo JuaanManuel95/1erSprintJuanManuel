@@ -6,7 +6,9 @@
     tools:context=".view.DetailFragment"
     android:orientation="vertical">
 
-
+    <include
+        layout="@layout/toolbar_layout"
+        android:id="@+id/toolbarFragmentDetail"/>
 
     <ImageView
         android:layout_width="match_parent"
@@ -26,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="40dp"
-        android:textColor="#000"
+        android:textColor="#FAF4F4"
         android:textAlignment="center"
         android:id="@+id/fragmentDetailTextViewPrecioProducto"/>
 

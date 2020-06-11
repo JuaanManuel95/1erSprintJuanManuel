@@ -21,8 +21,8 @@ public class ProductoDao extends RetrofitDao {
         productoService = super.retrofit.create(ProductoService.class);
     }
 
-    public void searchByQuery(String id, final ResultListener<ProductoContainer> resultListenerFromController){
-        Call<ProductoContainer> call = this.productoService.searchByQuery(id);
+    public void searchByQuery(String query, final ResultListener<ProductoContainer> resultListenerFromController){
+        Call<ProductoContainer> call = this.productoService.searchByQuery(query);
 
         call.enqueue(new Callback<ProductoContainer>() {
             @Override

@@ -7,8 +7,6 @@ public class ProductoContainer implements Serializable {
 
     private List<Producto> results;
 
-    public ProductoContainer() {
-    }
 
     public ProductoContainer(List<Producto> results) {
         this.results = results;

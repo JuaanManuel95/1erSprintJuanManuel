@@ -15,8 +15,11 @@ import android.view.ViewGroup;
 import com.example.mercadoesclavojmp.controller.ProductosController;
 import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.dao.ProductoDao;
+import com.example.mercadoesclavojmp.model.Producto;
+import com.example.mercadoesclavojmp.model.ProductoContainer;
 import com.example.mercadoesclavojmp.model.Productos;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -25,6 +28,7 @@ import java.util.List;
  */
 public class RecyclerViewFragment extends Fragment implements ProductosAdapter.ProductosAdapterListener {
 
+    public static final String PRODUCTOS = "productos";
     private RecyclerViewFragmentListener recyclerViewFragmentListener;
     //private SwipeRefreshLayout swipeRefreshLayout;
 
@@ -39,6 +43,8 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
         this.recyclerViewFragmentListener = (RecyclerViewFragmentListener) context;
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,9 +55,10 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
 
         RecyclerView recyclerViewProductos = view.findViewById(R.id.fragmentRecyclerRecyclerView);
 
-        ProductosController productosController = new ProductosController();
-
-        List<Productos> productosList = ProductoDao.getProductos();
+        //List<Productos> productosList = ProductoDao.getProductos();
+        Bundle bundle = getArguments();
+        ProductoContainer productosContainer = (ProductoContainer) bundle.getSerializable(PRODUCTOS);
+        List<Producto> productosList = productosContainer.getResults();
         ProductosAdapter productosAdapter = new ProductosAdapter(productosList,this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
 
@@ -62,14 +69,14 @@ public class RecyclerViewFragment extends Fragment implements ProductosAdapter.P
     }
 
     @Override
-    public void onClick(Productos productos) {
+    public void onClick(Producto producto) {
 
-        recyclerViewFragmentListener.onClickProductosDesdeFragment(productos);
+        recyclerViewFragmentListener.onClickProductosDesdeFragment(producto);
 
     }
 
     public interface RecyclerViewFragmentListener{
-        public void onClickProductosDesdeFragment(Productos productos);
+        public void onClickProductosDesdeFragment(Producto producto);
     }
 
 

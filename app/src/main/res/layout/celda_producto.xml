@@ -3,39 +3,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:backgroundTint="#5C6BC0"
+    android:backgroundTint="#673AB7"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="30dp"
+    app:cardCornerRadius="15dp"
     app:cardElevation="45dp"
     android:layout_margin="5dp">
     
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:textAlignment="center"
-            android:textColor="#EF9A9A"
-            android:id="@+id/celdaTextViewNombreProducto"/>
+        android:minHeight="88dp">
+
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/airpods"
+
+            android:layout_width="100dp"
+            android:layout_height="110dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
             android:scaleType="centerCrop"
             android:id="@+id/celdaImageViewProducto"/>
+      
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_toRightOf="@id/celdaImageViewProducto"
+          android:layout_marginLeft="16dp"
+          android:layout_marginRight="16dp">
+          <TextView
+              android:id="@+id/celdaTextViewPrecioProducto"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_marginTop="4dp"
+              android:maxLines="2"
+              android:ellipsize="end"
+              android:fontFamily="sans-serif"
+              android:textSize="14sp"
+              android:textColor="#fff"/>
+          <TextView
+              android:id="@+id/celdaTextViewNombreProducto"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_marginTop="35dp"
+              android:layout_marginRight="8dp"
+              android:maxLines="2"
+              android:ellipsize="end"
+              android:fontFamily="sans-serif"
+              android:textSize="16sp"
+              android:textStyle="bold"
+              android:textColor="#fff"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="Precio"
-            android:textColor="#EF9A9A"
-            android:textAlignment="center"
-            android:id="@+id/celdaTextViewPrecioProducto"/>
+      </RelativeLayout>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
+    
+    
+   
