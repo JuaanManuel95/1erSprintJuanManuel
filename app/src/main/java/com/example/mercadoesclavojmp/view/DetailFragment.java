@@ -23,6 +23,7 @@ import com.example.mercadoesclavojmp.model.Producto;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -38,7 +39,7 @@ public class DetailFragment extends Fragment {
 
     private Toolbar toolbar;
     private FirebaseFirestore db;
-    private Button btnFav;
+    private FloatingActionButton btnFav;
     private FirebaseAuth mAuth;
     private ImageView imageViewProducto;
     private TextView textViewProducto;
@@ -69,7 +70,7 @@ public class DetailFragment extends Fragment {
          imageViewProducto = view.findViewById(R.id.fragmentDetailImageView);
          textViewProducto = view.findViewById(R.id.fragmentDetailTextViewNombreProducto);
          textViewPrecio = view.findViewById(R.id.fragmentDetailTextViewPrecioProducto);
-         btnFav = view.findViewById(R.id.agregaFavs);
+         btnFav = view.findViewById(R.id.favoritesFab);
 
         Glide.with(imageViewProducto).load(producto.getThumbnail()).into(imageViewProducto);
         NumberFormat formatt = new DecimalFormat("###,###,###.##");

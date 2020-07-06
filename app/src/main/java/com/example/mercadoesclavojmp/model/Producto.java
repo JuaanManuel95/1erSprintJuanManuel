@@ -13,6 +13,10 @@ public class Producto implements Serializable {
     private String thumbnail;
     private List<Producto> pictures;
 
+    public Producto(){
+
+    }
+
 
     public Producto(String id, String title, Double price, String condition, String thumbnail, List<Producto> pictures) {
         this.id = id;

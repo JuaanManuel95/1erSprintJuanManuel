@@ -35,7 +35,7 @@ public class FavoritesFragment extends Fragment implements ProductosAdapter.Prod
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private RecyclerView recyclerViewFavoritos;
-    private TextView textViewFragmentFavoritos;
+
 
     public FavoritesFragment() {
         // Required empty public constructor
@@ -54,9 +54,7 @@ public class FavoritesFragment extends Fragment implements ProductosAdapter.Prod
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_favorites, container, false);
 
-        recyclerViewFavoritos.findViewById(R.id.FragmentFavoritos_RecyclerView);
-        textViewFragmentFavoritos.findViewById(R.id.agregaFavs);
-
+        recyclerViewFavoritos= view.findViewById(R.id.FragmentFavoritos_RecyclerView);
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
@@ -68,6 +66,7 @@ public class FavoritesFragment extends Fragment implements ProductosAdapter.Prod
                 UserNuevo userNuevo = documentSnapshot.toObject(UserNuevo.class);
                 List<Producto> favoritos = userNuevo.getFavoritos();
                 productoAdapter = new ProductosAdapter(favoritos, FavoritesFragment.this);
+
                 recyclerViewFavoritos.setAdapter(productoAdapter);
             }
         });
