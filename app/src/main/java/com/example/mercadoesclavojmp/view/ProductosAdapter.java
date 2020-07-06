@@ -14,6 +14,8 @@ import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.model.Producto;
 
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolderProducto> {
@@ -74,8 +76,10 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
 
         public void onBind(Producto producto) {
             Glide.with(imageViewProducto).load(producto.getThumbnail()).into(imageViewProducto);
+            NumberFormat formatt = new DecimalFormat("###,###,###.##");
+            String precioString = formatt.format(producto.getPrice());
             textViewNombreProducto.setText(producto.getTitle());
-            textViewPrecioProducto.setText(producto.getPrice().toString());
+            textViewPrecioProducto.setText("$" + precioString);
 
         }
 

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.DetailFragment"
     android:orientation="vertical">
 
@@ -10,11 +11,24 @@
         layout="@layout/toolbar_layout"
         android:id="@+id/toolbarFragmentDetail"/>
 
+
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:scaleType="centerCrop"
         android:id="@+id/fragmentDetailImageView"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favoritesFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:src="@drawable/ic_favorite_border_black_24dp"
+        android:tint="#FFF"
+        app:fabSize="normal"
+        android:backgroundTint="#E40A0A"
+        app:layout_anchorGravity="bottom|right"
+        app:maxImageSize="40dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -41,5 +55,7 @@
         android:id="@+id/framentDetailTextViewDescripcionProducto"
         android:layout_marginTop="60dp"
         android:textStyle="italic"/>
+
+
 
 </LinearLayout>

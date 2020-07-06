@@ -25,16 +25,3 @@ public class ProductosController {
     }
 }
 
-
-
-
-
-
-
-
-
-/**
- public boolean hayinternet(){
- return false;
- }
- */

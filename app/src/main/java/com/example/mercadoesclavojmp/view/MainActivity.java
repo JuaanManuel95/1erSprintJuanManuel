@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +21,11 @@ import com.example.mercadoesclavojmp.controller.ProductosController;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.ProductoContainer;
 import com.example.mercadoesclavojmp.util.ResultListener;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewFragment.RecyclerViewFragmentListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -30,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
     private ProductosController productosController;
     private RecyclerViewFragment recyclerViewFragment;
     private Toolbar toolbar;
+    private FirebaseAuth mAuth;
+    private GoogleSignInClient mGoogleSignInClient;
+    private FavoritesFragment favoritesFragment;
 
 
     @Override
@@ -37,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        favoritesFragment = new FavoritesFragment();
         recyclerViewFragment = new RecyclerViewFragment();
         productosController = new ProductosController();
         productosController.searchByQuery("Notebooks", new ResultListener<ProductoContainer>() {
@@ -72,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu,menu);
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 
@@ -101,10 +112,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        switch (itemId){
+        switch (itemId) {
 
             case R.id.itemLogOut:
-                Toast.makeText(MainActivity.this, "¡Hasta luego!", Toast.LENGTH_LONG).show();
+                signOut();
                 break;
         }
         return true;
@@ -117,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
                 Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.menuFavoritos:
-                Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
+                pegarFragment(favoritesFragment);
                 break;
             case R.id.menuAjustes:
                 Toast.makeText(MainActivity.this, "Próximamente", Toast.LENGTH_SHORT).show();
@@ -133,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
 
     /**
      * pegarFragment
+     *
      * @param fragment
      */
     private void pegarFragment(Fragment fragment) {
@@ -142,5 +154,19 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewFragm
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+
+    private void signOut() {
+
+        mAuth.signOut();
+        goToLogIn();
+    }
+
+
+    private void goToLogIn() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+    }
+
 
 }

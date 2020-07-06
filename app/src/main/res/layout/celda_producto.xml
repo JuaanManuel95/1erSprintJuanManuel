@@ -33,17 +33,6 @@
           android:layout_marginLeft="16dp"
           android:layout_marginRight="16dp">
           <TextView
-              android:id="@+id/celdaTextViewPrecioProducto"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:layout_alignParentLeft="true"
-              android:layout_marginTop="4dp"
-              android:maxLines="2"
-              android:ellipsize="end"
-              android:fontFamily="sans-serif"
-              android:textSize="14sp"
-              android:textColor="#fff"/>
-          <TextView
               android:id="@+id/celdaTextViewNombreProducto"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
@@ -57,11 +46,23 @@
               android:textStyle="bold"
               android:textColor="#fff"/>
 
+
       </RelativeLayout>
+
+        <TextView
+            android:id="@+id/celdaTextViewPrecioProducto"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="4dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:textColor="#fff"
+            android:textSize="14sp" />
 
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
     
     
-   

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "908189460744",
+    "firebase_url": "https://mercadoesclavojmp.firebaseio.com",
+    "project_id": "mercadoesclavojmp",
+    "storage_bucket": "mercadoesclavojmp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908189460744:android:56da1dcf02d75e8b67a4bd",
+        "android_client_info": {
+          "package_name": "com.example.mercadoesclavojmp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "908189460744-t8r8sjvhnkm3fareoj0ulhaah3t39g7n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mercadoesclavojmp",
+            "certificate_hash": "ce67108ecdf5ae2a9c0b7c3ea6850fc12f778ab5"
+          }
+        },
+        {
+          "client_id": "908189460744-bh7v5mi8o1lr59smek44cr7hd1n2lq6j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKu3rf0amlOqk9UxdZ4p0yUmjWoXx4F-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "908189460744-bh7v5mi8o1lr59smek44cr7hd1n2lq6j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

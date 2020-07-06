@@ -12,14 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.mercadoesclavojmp.controller.ProductosController;
 import com.example.mercadoesclavojmp.R;
-import com.example.mercadoesclavojmp.dao.ProductoDao;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.ProductoContainer;
-import com.example.mercadoesclavojmp.model.Productos;
 
-import java.io.Serializable;
 import java.util.List;
 
 
