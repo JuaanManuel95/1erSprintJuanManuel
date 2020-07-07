@@ -6,7 +6,7 @@
     android:background="#F8BBD0"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.LoginActivity">
+    tools:context=".view.Activity.LoginActivity">
 
     <LinearLayout
         android:id="@+id/formContainer"

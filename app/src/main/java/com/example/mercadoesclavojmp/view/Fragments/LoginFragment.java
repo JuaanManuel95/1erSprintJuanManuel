@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp.view;
+package com.example.mercadoesclavojmp.view.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.databinding.FragmentLoginBinding;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.UserNuevo;
-import com.example.mercadoesclavojmp.util.ResultListener;
+import com.example.mercadoesclavojmp.view.Activity.MainActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;

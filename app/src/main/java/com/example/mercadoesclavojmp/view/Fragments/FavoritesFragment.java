@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp.view;
+package com.example.mercadoesclavojmp.view.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,17 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.UserNuevo;
+import com.example.mercadoesclavojmp.view.Adapter.ProductosAdapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.UserInfo;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.auth.User;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp.view;
+package com.example.mercadoesclavojmp.view.Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.ProductoContainer;
+import com.example.mercadoesclavojmp.view.Adapter.ProductosAdapter;
 
 import java.util.List;
 

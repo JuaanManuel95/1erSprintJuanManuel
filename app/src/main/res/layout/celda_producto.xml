@@ -59,7 +59,7 @@
             android:fontFamily="sans-serif"
             android:maxLines="2"
             android:textColor="#fff"
-            android:textSize="14sp" />
+            android:textSize="14dp" />
 
     </RelativeLayout>
 

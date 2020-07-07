@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp.view;
+package com.example.mercadoesclavojmp.view.Fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,8 +6,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +17,7 @@ import com.example.mercadoesclavojmp.R;
 import com.example.mercadoesclavojmp.databinding.FragmentRegisterBinding;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.UserNuevo;
+import com.example.mercadoesclavojmp.view.Activity.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;

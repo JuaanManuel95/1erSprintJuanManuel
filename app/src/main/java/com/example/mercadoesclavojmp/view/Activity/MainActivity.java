@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp.view;
+package com.example.mercadoesclavojmp.view.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,9 +21,11 @@ import com.example.mercadoesclavojmp.controller.ProductosController;
 import com.example.mercadoesclavojmp.model.Producto;
 import com.example.mercadoesclavojmp.model.ProductoContainer;
 import com.example.mercadoesclavojmp.util.ResultListener;
+import com.example.mercadoesclavojmp.view.Fragments.DetailFragment;
+import com.example.mercadoesclavojmp.view.Fragments.FavoritesFragment;
+import com.example.mercadoesclavojmp.view.Fragments.RecyclerViewFragment;
+import com.example.mercadoesclavojmp.view.Fragments.SobreNosotrosFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 

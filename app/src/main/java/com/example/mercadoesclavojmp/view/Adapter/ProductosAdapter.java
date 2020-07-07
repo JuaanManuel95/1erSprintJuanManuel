@@ -1,4 +1,4 @@
-package com.example.mercadoesclavojmp.view;
+package com.example.mercadoesclavojmp.view.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;

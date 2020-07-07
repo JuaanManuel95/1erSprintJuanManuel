@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FF8A65"
     android:orientation="vertical"
-    tools:context=".view.LoginActivity">
+    tools:context=".view.Activity.LoginActivity">
 
 
 
